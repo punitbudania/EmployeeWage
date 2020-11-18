@@ -4,16 +4,21 @@ public class EmpWageBuilderUC{
 	public static final int IS_FULL_TIME = 2;
 	public static final int EMP_RATE_PER_HOUR = 20;
 	public static final int NUM_OF_WORKING_DAYS = 5;
-
-	public static void main(String args[]){
+	public static final int MAX_HRS_IN_MONTH = 20;
+	public static void main(String args[])
+	{
 //		System.out.println("*****Welcome To Employee Details*****");
 		//VARIABLES
-		int empHrs = 0;
-		int empWage = 0;
 		int totalWage = 0;
+		int totalEmpHrs = 0;
+		int totalWD = 0;
 		//cOMPUTATION
-		for (int day = 0; day<NUM_OF_WORKING_DAYS; day++)
+		while (totalEmpHrs < MAX_HRS_IN_MONTH && totalWD < NUM_OF_WORKING_DAYS)
 		{
+			int empHrs = 0;
+			int empWage = 0;
+			totalWD++;
+
 			int empCheck = (int) Math.floor(Math.random()*10)%3;
 
 			switch (empCheck)
@@ -29,6 +34,8 @@ public class EmpWageBuilderUC{
 				}
 			empWage = empHrs * EMP_RATE_PER_HOUR;
 			totalWage += empWage;
+			totalEmpHrs += empHrs;
+			System.out.println("Emp Hrs: "+empHrs);
 			System.out.println("Emp Wage: "+empWage);
 		}
 		System.out.println("total Emp wage = " + totalWage);
